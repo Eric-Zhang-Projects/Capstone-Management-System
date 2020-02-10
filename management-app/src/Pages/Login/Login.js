@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
-import "./Login.css"
+import "./Login.css";
 
 export default function Login(props) {
   const [NetID, setNetID] = useState("");
@@ -10,8 +10,12 @@ export default function Login(props) {
     return NetID.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit(event) {
+    if (!validateForm()) {
+      alert("Login Failed");
+    } else {
+      props.history.push("/");
+    }
   }
 
   return (
