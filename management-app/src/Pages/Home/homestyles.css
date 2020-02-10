@@ -2,7 +2,6 @@
     padding: 0% 10% 0% 10%
 }
 
-.text{
+.text, .text:hover{
     color: #E53232;
-    text-decoration: none;
 }
