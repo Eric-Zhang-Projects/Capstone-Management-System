@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import RutgersLogo from "../../images/rutgerslogo.png";
-import { BrowserRouter as Router, Link } from "react-router-dom";
 import {
   HeaderContainer,
   OptionsContainer,
@@ -12,7 +11,6 @@ import "./headerstyles.css";
 export default class Header extends Component {
   render() {
     return (
-      <Router>
         <HeaderContainer>
           <img src={RutgersLogo} alt="logo" className="Logo" />
           <OptionsContainer>
@@ -21,7 +19,6 @@ export default class Header extends Component {
             <OptionLink to="/login">Login</OptionLink>
           </OptionsContainer>
         </HeaderContainer>
-      </Router>
     );
   }
 }
