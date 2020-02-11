@@ -15,9 +15,8 @@ export default function Register(props) {
 
   async function handleSubmit(event) {
     if (!validateForm()) {
-      alert("Login Failed");
+      alert("Register Failed");
     } else {
-      console.log(FirstName, LastName, RUID, Email);
       props.history.push("/");
     }
   }
@@ -46,7 +45,6 @@ export default function Register(props) {
         <FormGroup controlId="RUID" bsSize="large">
           <FormLabel>RUID</FormLabel>
           <FormControl
-            autoFocus
             type="RUID"
             value={RUID}
             onChange={e => setRUID(e.target.value)}
