@@ -7,18 +7,33 @@ import {
   OptionDiv,
 } from "./header.styles";
 import "./headerstyles.css";
+import { AuthContext } from "../../App";
 
-export default class Header extends Component {
-  render() {
-    return (
-        <HeaderContainer>
-          <img src={RutgersLogo} alt="logo" className="Logo" />
-          <OptionsContainer>
-            <OptionLink to="/">Home</OptionLink>
+function Header() {
+  const { state, dispatch } = React.useContext(AuthContext);
+  return (
+    <HeaderContainer>
+      <img src={RutgersLogo} alt="logo" className="Logo" />
+      <OptionsContainer>
+        <OptionLink to="/">Home</OptionLink>
+        {state.isAuthenticated ? (
+          <OptionDiv
+            onClick={() =>
+              dispatch({
+                type: "LOGOUT",
+              })
+            }>
+            Logout
+          </OptionDiv>
+        ) : (
+          <OptionDiv>
             <OptionLink to="/register">Register</OptionLink>
             <OptionLink to="/login">Login</OptionLink>
-          </OptionsContainer>
-        </HeaderContainer>
-    );
-  }
+          </OptionDiv>
+        )}
+      </OptionsContainer>
+    </HeaderContainer>
+  );
 }
+
+export default Header;
